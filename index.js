@@ -1,22 +1,50 @@
 let computerScore = 0;
 let playerScore = 0;
+let buttons = document.querySelectorAll(".btn")
+let r = document.querySelector("#r")
+let p = document.querySelector("#p")
+let s = document.querySelector("#s")
 let standing = document.querySelector(".standing h2")
 let player1 = document.querySelector(".score .player1 h2")
 let player2 = document.querySelector(".score .player2 h2")
 
+function game() {
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+            var computerChoice = getComputerChoice();
+            console.log(computerChoice);
+            var playerChoice = this.innerHTML;
+            console.log(playerChoice);
 
-for (let i = 0; i < document.querySelectorAll(".btn").length; i++) {
-    document.querySelectorAll(".btn")[i].addEventListener("click", function () {
-        var computerChoice = getComputerChoice();
-        console.log(computerChoice);
-        var playerChoice = this.innerHTML;
-        console.log(playerChoice);
+            playRound(playerChoice, computerChoice);
+            endGame(playerScore, computerScore);
 
-        playRound(playerChoice, computerChoice);
+        });
 
-    });
-
+    }
 }
+
+
+function endGame(pScore, cScore) {
+    if ((pScore === 5) && (cScore === 5)) {
+        standing.innerHTML = "TIE!!! GAME OVER";
+        disable();
+    } else if ((pScore === 5) && (pScore > cScore) ){
+        standing.innerHTML = "YOU WIN !!! GAME OVER";
+        disable();
+    } else if ((cScore === 5) && (cScore > pScore)){
+        standing.innerHTML = "COMPUTER WINS!!! GAME OVER";
+        disable();
+    }
+}
+
+
+function disable() {
+    r.disabled = true;
+    p.disabled = true;
+    s.disabled = true;
+}
+
 
 function getComputerChoice() {
     let rps = ["rock", "paper", "scissors"];
@@ -55,6 +83,9 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
+game();
+
 // function game() {
 //     for (let i = 0; i < 5; i++) {
 //         let playerSelection = playerChoice;
@@ -71,4 +102,4 @@ function playRound(playerSelection, computerSelection) {
 //     }
 // }
 
-// game();
+
