@@ -4,9 +4,11 @@ let buttons = document.querySelectorAll(".btn")
 let r = document.querySelector("#r")
 let p = document.querySelector("#p")
 let s = document.querySelector("#s")
+let again = document.querySelector("#playAgain")
 let standing = document.querySelector(".standing h2")
 let player1 = document.querySelector(".score .player1 h2")
 let player2 = document.querySelector(".score .player2 h2")
+
 
 function game() {
     for (let i = 0; i < buttons.length; i++) {
