@@ -11,6 +11,14 @@ let player2 = document.querySelector(".score .player2 h2")
 
 
 function game() {
+    again.addEventListener("click", function () {
+        computerScore = 0;
+        player2.innerHTML = computerScore;
+        playerScore = 0;
+        player1.innerHTML = playerScore;
+        enable();
+
+    });
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener("click", function () {
             var computerChoice = getComputerChoice();
@@ -45,6 +53,15 @@ function disable() {
     r.disabled = true;
     p.disabled = true;
     s.disabled = true;
+    again.disabled = false;
+}
+
+
+function enable() {
+    r.disabled = false;
+    p.disabled = false;
+    s.disabled = false;
+    again.disabled = true;
 }
 
 
@@ -87,21 +104,4 @@ function playRound(playerSelection, computerSelection) {
 
 
 game();
-
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         let playerSelection = playerChoice;
-//         let computerSelection = getComputerChoice();
-//         console.log(`comp choice is ${computerSelection}`);
-//         console.log(playRound(playerSelection, computerSelection));
-//     }
-//     if (computerScore > playerScore) {
-//         console.log("The COMPUTER WINS!!!")
-//     } else if (playerScore > computerScore) {
-//         console.log("The PLAYER WINS!!!")
-//     } else {
-//         console.log("TIE!!!")
-//     }
-// }
-
 
