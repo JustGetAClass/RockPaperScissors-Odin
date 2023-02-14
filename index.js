@@ -11,6 +11,7 @@ let player2 = document.querySelector(".score .player2 h2")
 
 
 function game() {
+    enable();
     again.addEventListener("click", function () {
         computerScore = 0;
         player2.innerHTML = computerScore;
@@ -104,4 +105,3 @@ function playRound(playerSelection, computerSelection) {
 
 
 game();
-
