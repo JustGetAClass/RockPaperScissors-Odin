@@ -63,6 +63,7 @@ function enable() {
     p.disabled = false;
     s.disabled = false;
     again.disabled = true;
+    standing.innerHTML = "Make a Choice!";
 }
 
 
