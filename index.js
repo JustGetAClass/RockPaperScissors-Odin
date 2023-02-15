@@ -8,6 +8,8 @@ let again = document.querySelector("#playAgain")
 let standing = document.querySelector(".standing h2")
 let player1 = document.querySelector(".score .player1 h2")
 let player2 = document.querySelector(".score .player2 h2")
+let cchoice = document.querySelector(".choices .cchoice span")
+let pchoice = document.querySelector(".choices .pchoice span")
 
 
 function game() {
@@ -37,10 +39,7 @@ function game() {
 
 
 function endGame(pScore, cScore) {
-    if ((pScore === 5) && (cScore === 5)) {
-        standing.innerHTML = "TIE!!! GAME OVER";
-        disable();
-    } else if ((pScore === 5) && (pScore > cScore) ){
+    if ((pScore === 5) && (pScore > cScore) ){
         standing.innerHTML = "YOU WIN !!! GAME OVER";
         disable();
     } else if ((cScore === 5) && (cScore > pScore)){
